@@ -1,9 +1,5 @@
-﻿using System;
-using VetoresPt2;
-
-/* Fazer um programa para ler um numero inteiro N e os dados (nome e preco)
- * de N produtos. Armazene os N produtos em um vetor. Em seguida, mostrar o preco medio
- * dos produtos*/
+using System;
+using VetoresPt2; // Importa o namespace VetoresPt2 para usar a classe Product.
 
 namespace Course
 {
@@ -11,28 +7,28 @@ namespace Course
     {
         static void Main(string[] args)
         {
-            int n = int.Parse(Console.ReadLine());
+            int n = int.Parse(Console.ReadLine()); // Lê o número inteiro N, que representa a quantidade de produtos.
 
-            Product[] vect = new Product[n];
+            Product[] vect = new Product[n]; // Cria um vetor de objetos Product para armazenar os produtos.
 
             for (int i = 0; i < n; i++)
             {
-                string name = Console.ReadLine();
-                double price = double.Parse(Console.ReadLine());
+                string name = Console.ReadLine(); // Lê o nome do produto.
+                double price = double.Parse(Console.ReadLine()); // Lê o preço do produto.
 
-                vect[i] = new Product { Name = name, Price = price };
+                vect[i] = new Product { Name = name, Price = price }; // Cria um objeto Product com os dados lidos e adiciona ao vetor.
             }
 
             double sum = 0;
 
-            for (int i = 0;i < n;i++)
+            for (int i = 0; i < n; i++)
             {
-                sum += vect[i].Price;
+                sum += vect[i].Price; // Calcula a soma dos preços dos produtos.
             }
 
-            double avg = sum / n;
+            double avg = sum / n; // Calcula o preço médio dos produtos.
 
-            Console.WriteLine($"Preco Medio: {avg.ToString("F2")}");
+            Console.WriteLine($"Preco Medio: {avg.ToString("F2")}"); // Exibe o preço médio formatado com duas casas decimais.
         }
     }
 }
