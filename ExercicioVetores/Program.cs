@@ -1,15 +1,5 @@
-﻿using ExercicioVetores;
+using ExercicioVetores; // Importa o namespace ExercicioVetores para utilizar a classe Pensionato.
 using System;
-
-/* A dona de um pensionato possui dez quartos para alugar para estudantes, sendo esses quartos
- * identificados pelos numeros 0 a 9.
- * 
- * Fazer um programa que inicie com todos os dez quartos vazios, e depois leia
- * uma quantidade N repredentando o numero de estudantes que vao alugar quartos
- * (N pode ser de 1 a 10). Em seguida, registre o aluguel dos N estudantes. Para cada
- * registro de aluguel, informar o nome e email do estudante, bem como qual dos quartos
- * ele escolheu (de 0 a 9). Suponha que seja escolhido um quarto vago. Ao final, seu programa
- * deve imprimir um relatorio de todas ocupacoes do pensionato, por ordem de quarto*/
 
 namespace ExercicioVetores
 {
@@ -18,23 +8,24 @@ namespace ExercicioVetores
         static void Main(string[] args)
         {
             Console.Write("How many rooms will be rented? ");
-            int n = int.Parse(Console.ReadLine());
+            int n = int.Parse(Console.ReadLine()); // Lê o número de quartos que serão alugados.
 
-            Pensionato[] vect = new Pensionato[10];
+            Pensionato[] vect = new Pensionato[10]; // Cria um vetor de objetos Pensionato com 10 posições.
 
             for (int i = 0; i < n; i++)
             {
                 Console.WriteLine($"Rent #{i + 1}");
                 Console.Write("Name: ");
-                string name = Console.ReadLine();
+                string name = Console.ReadLine(); // Lê o nome do estudante.
                 Console.Write("Email: ");
-                string email = Console.ReadLine();
+                string email = Console.ReadLine(); // Lê o email do estudante.
                 Console.Write("Room: ");
-                int room = int.Parse(Console.ReadLine());
+                int room = int.Parse(Console.ReadLine()); // Lê o número do quarto escolhido.
 
-                vect[i] = new Pensionato { Name = name, Email = email, Room = room };
+                vect[i] = new Pensionato { Name = name, Email = email, Room = room }; // Cria um objeto Pensionato com as informações lidas e armazena no vetor.
             }
 
+            // Ordena os quartos ocupados em ordem crescente.
             for (int i = 0; i < n - 1; i++)
             {
                 for (int j = 0; j < n - i - 1; j++)
@@ -50,6 +41,7 @@ namespace ExercicioVetores
 
             Console.WriteLine("Busy rooms in ascending order:");
 
+            // Exibe o relatório dos quartos ocupados em ordem ascendente.
             for (int i = 0; i < n; i++)
             {
                 Console.WriteLine($"{vect[i].Room}: {vect[i].Name}, {vect[i].Email}");
